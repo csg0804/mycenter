@@ -1,4 +1,4 @@
-# try-vue
+# mycenter
 
 > A Vue.js project
 
