@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
@@ -13,6 +12,8 @@ export default {
 
 <style>
 @import url('./style/reset.less');
+@import url('./style/1px.css');
+@import url('./style/iconfont.css');
 html, body{
   width: 100vw;
   height: 100vh;
