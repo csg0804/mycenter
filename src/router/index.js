@@ -11,24 +11,24 @@ Vue.use(Router)
 const routerlist = [
   { 
     path: '/', 
-    name: 'layout', 
     component: Layout,
+    redirect: { name: 'home' },
     children: [
       { path: '/', name: 'home', component: Home, meta: { title: "首页" } }
     ]
   },
   { 
     path: '/works', 
-    name: 'layout', 
     component: Layout,
+    redirect: { name: 'works' },
     children: [
       { path: '/works', name: 'works', component: Works, meta: { title: "作品列表" } }
     ]
   },
   { 
     path: '/my', 
-    name: 'layout', 
     component: Layout,
+    redirect: { name: 'my' },
     children: [
       { path: '/my', name: 'my', component: My, meta: { title: "个人中心" } }
     ]

@@ -2,8 +2,10 @@
   <div class="nav-wrap scale-1px-top">
     <ul class="nav-list">
       <li class="nav-item" :class="{'active':curnav==item.id}" v-for="(item, index) in navlist" :key="index">
-        <span class="iconfont" :class="item.icon"></span>
-        <router-link class="title" :to="item.path" @click.native="navFun(item)">{{item.title}}</router-link>
+        <router-link class="links" :to="item.path" @click.native="navFun(item)">
+          <span class="iconfont" :class="item.icon"></span>
+          <span class="title">{{item.title}}</span>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -45,29 +47,37 @@ export default {
     .nav-item{
       flex: 1;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      .iconfont{
-        font-size: 0.44rem;
-        color: #999;
-        margin: 0.05rem 0 0.05rem;
-      }
-      .title{
-        font-size: 0.24rem;
-        color: #999;
-        text-decoration: none;
+      .links{
+        width: 1.1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         &:hover, &:active, &:visited, &:link,a:focus{
           background: none;
           outline:none;
           text-decoration: none;
           -webkit-tap-highlight-color: transparent;
         }
+        .iconfont{
+          font-size: 0.44rem;
+          color: #999;
+          margin: 0.05rem 0 0.05rem;
+        }
+        .title{
+          font-size: 0.24rem;
+          color: #999;
+          text-decoration: none;
+        }
       }
     }
     .active{
-      .iconfont, .title{
-        color: #3296fa;
+      .links{
+        .iconfont, .title{
+          color: #3296fa;
+        }
       }
     }
   }
