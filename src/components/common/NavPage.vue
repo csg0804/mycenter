@@ -44,9 +44,10 @@ export default {
   width: 100%;
   height: 0.98rem;
   background: #fff;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 100;
   .nav-list{
     display: flex;
     height: 100%;

@@ -22,7 +22,7 @@ const routerlist = [
     component: Layout,
     redirect: { name: 'works' },
     children: [
-      { path: '/works', name: 'works', component: Works, meta: { title: "作品列表" } }
+      { path: '/works', name: 'works', component: Works, meta: { title: "我的项目" } }
     ]
   },
   { 

@@ -1,6 +1,8 @@
 <template>
   <div class="pages my-wrap">
-    这里是我的页面
+    <div class="top-part">
+
+    </div>
   </div>
 </template>
 
@@ -19,8 +21,11 @@ export default {
 <style lang='less' scoped>
 
 .my-wrap{
-  // background: #F5F5F5;
-  background: green;
+  background: #F5F5F5;
+  .top-part{
+    height: 3rem;
+    background: #fff;
+  }
 }
 
 </style>

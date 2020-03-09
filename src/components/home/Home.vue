@@ -1,294 +1,58 @@
 <template>
   <div class="pages home-wrap">
-    <div class="charts" style="width: 100%" id="container"></div>
-    <!-- <v-chart class="charts" prevent-render @on-render="renderChart"></v-chart> -->
-    <!-- <div style='float:left;width:100px;height:100px;background: #fff;'>
-      <x-circle
-        :percent="percent"
-        :stroke-width="15"
-        :trail-width="15"
-        :stroke-color="['#36D1DC', '#5B86E5']"
-        trail-color="#ececec">
-        <span style="color:#36D1DC">{{ percent }}%</span>
-      </x-circle>
+    <div class="top-part">
+      <div class="title-box">
+        <h3 class="title">我的微场景</h3>
+        <p class="title-info">
+          通过酷炫的【 <span class="info-bold">微场景应用</span> 】展示我的简历
+        </p>
+        <x-button class="tolink" type="primary">点击查看</x-button>
+      </div>
+
+      <!-- <div class="title-box">
+        <div class="iconfont iconicon-test"></div>
+        <h3 class="title">我的微场景
+          <span class="title-info">my micro resume</span>
+        </h3>
+        <p class="tolink">点击查看 >></p>
+      </div> -->
+      <div class="icon-back iconfont iconappworksheet"></div>
+      <canvas class="ani" id="anicanvas"></canvas>
     </div>
-    <div style='float:left;width:100px;height:100px;background: #fff;'>
-      <x-circle
-        :percent="percent1"
-        :stroke-width="15"
-        :trail-width="15"
-        :stroke-color="['#01a65a', '#932bb6']"
-        trail-color="#ececec">
-        <span style="color:#36D1DC">{{ percent1 }}%</span>
-      </x-circle>
-    </div> -->
-    <!-- <div class="charts-box">
-      <v-chart class="charts" prevent-render @on-render="renderChart"></v-chart>
+    <div class="main">
+      <div class="charts" style="width: 100%" id="container"></div>
     </div>
-    <div class="charts-box">
-      <v-chart class="charts" prevent-render @on-render="renderChart1"></v-chart>
-    </div>
-    <div class="charts-box">
-      <v-chart class="charts" prevent-render @on-render="renderChart2"></v-chart>
-    </div>
-    <div class="charts-box">
-      <v-chart class="charts" prevent-render @on-render="renderChart3"></v-chart>
-    </div> -->
   </div>
 </template>
 
 <script>
-import { VChart, XCircle } from 'vux'
+import { XButton } from 'vux'
+import Wave from "../../utils/wave"
 
 export default {
   components: {
-    VChart,
-    XCircle
+    XButton
   },
   data() {
     return {
-      percent: 80,
-      percent1: 60,
-      screenWidth: document.body.clientWidth, // 屏幕尺寸
+      
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    Wave.clear();   //清除波浪动画
+    next();
   },
   created() {
 
   },
   mounted() {
+    Wave.render("anicanvas", { height: 60 });    //启动波浪动画   离开页面时需要清除动画
     this.setCharts();
   },
   methods: {
-    renderChart ({ chart }) {
-      // 背景色： 
-      // 圆圈颜色  #01c0ef，  #01a65a,  #f56954,  #932bb6 
-
-
-      const data = [ { x: '1', y: 85 } ]
-      chart.source(data, {
-        y: {
-          max: 100,
-          min: 0
-        }
-      })
-      chart.axis(false)
-      chart.tooltip(false)
-      chart.coord('polar', {
-        transposed: true,
-        innerRadius: 0.8,
-        radius: 0.65
-      })
-      chart.guide().arc({
-        start: [ 0, 0 ],
-        end: [ 1, 99.98 ],
-        top: false,
-        style: {
-          lineWidth: 20,
-          stroke: '#eee'
-        }
-      })
-      chart.guide().text({
-        position: [ '50%', '50%' ],
-        content: '85%',
-        style: {
-          fontSize: 24,
-          fill: '#01c0ef'
-        }
-      })
-      chart.interval()
-        .position('x*y')
-        .color('#01c0ef')
-        .size(20)
-        .animate({
-          appear: {
-            duration: 1200,
-            easing: 'cubicIn'
-          }
-        })
-        chart.changeSize(this.screenWidth/2)
-      chart.render()
-    },
-    renderChart1 ({ chart }) {
-      // 背景色： 
-      // 圆圈颜色  #01c0ef，  #01a65a,  #f56954,  #932bb6 
-
-
-      const data = [ { x: '1', y: 85 } ]
-      chart.source(data, {
-        y: {
-          max: 100,
-          min: 0
-        }
-      })
-      chart.axis(false)
-      chart.tooltip(false)
-      chart.coord('polar', {
-        transposed: true,
-        innerRadius: 0.8,
-        radius: 0.65
-      })
-      chart.guide().arc({
-        start: [ 0, 0 ],
-        end: [ 1, 99.98 ],
-        top: false,
-        style: {
-          lineWidth: 20,
-          stroke: '#eee'
-        }
-      })
-      chart.guide().text({
-        position: [ '50%', '50%' ],
-        content: '85%',
-        style: {
-          fontSize: 24,
-          fill: '#01c0ef'
-        }
-      })
-      chart.interval()
-        .position('x*y')
-        .color('#01a65a')
-        .size(20)
-        .animate({
-          appear: {
-            duration: 1200,
-            easing: 'cubicIn'
-          }
-        })
-      chart.changeSize(this.screenWidth/2);
-      chart.render()
-    },
-    renderChart2 ({ chart }) {
-      // 背景色： 
-      // 圆圈颜色  #01c0ef，  #01a65a,  #f56954,  #932bb6 
-
-
-      const data = [ { x: '1', y: 85 } ]
-      chart.source(data, {
-        y: {
-          max: 100,
-          min: 0
-        }
-      })
-      chart.axis(false)
-      chart.tooltip(false)
-      chart.coord('polar', {
-        transposed: true,
-        innerRadius: 0.8,
-        radius: 0.65
-      })
-      chart.guide().arc({
-        start: [ 0, 0 ],
-        end: [ 1, 99.98 ],
-        top: false,
-        style: {
-          lineWidth: 20,
-          stroke: '#eee'
-        }
-      })
-      chart.guide().text({
-        position: [ '50%', '50%' ],
-        content: '85%',
-        style: {
-          fontSize: 24,
-          fill: '#01c0ef'
-        }
-      })
-      chart.interval()
-        .position('x*y')
-        .color('#f56954')
-        .size(20)
-        .animate({
-          appear: {
-            duration: 1200,
-            easing: 'cubicIn'
-          }
-        })
-        chart.changeSize(this.screenWidth/2)
-      chart.render()
-    },
-    renderChart3 ({ chart }) {
-      // 背景色： 
-      // 圆圈颜色  #01c0ef，  #01a65a,  #f56954,  #932bb6 
-
-
-      const data = [ { x: '1', y: 85 } ]
-      chart.source(data, {
-        y: {
-          max: 100,
-          min: 0
-        }
-      })
-      chart.axis(false)
-      chart.tooltip(false)
-      chart.coord('polar', {
-        transposed: true,
-        innerRadius: 0.8,
-        radius: 0.65
-      })
-      chart.guide().arc({
-        start: [ 0, 0 ],
-        end: [ 1, 99.98 ],
-        top: false,
-        style: {
-          lineWidth: 20,
-          stroke: '#eee'
-        }
-      })
-      chart.guide().text({
-        position: [ '50%', '50%' ],
-        content: '85%',
-        style: {
-          fontSize: 24,
-          fill: '#01c0ef'
-        }
-      })
-      chart.interval()
-        .position('x*y')
-        .color('#932bb6')
-        .size(20)
-        .animate({
-          appear: {
-            duration: 1200,
-            easing: 'cubicIn'
-          }
-        })
-        chart.changeSize(this.screenWidth/2)
-      chart.render()
-    },
-
-    setCharts() {
-      // let options = this.lineOptions();
+    setCharts() {   // 图表初始化函数
       let options = this.getOptions();
-      
-
-        // 图表初始化函数
-        this.$Highcharts.chart('container', options);
-    },
-    lineOptions() {
-      let options = {
-          chart: {
-              type: 'bar'                          //指定图表的类型，默认是折线图（line）
-          },
-          title: {
-              text: '我的第一个图表'                 // 标题
-          },
-          xAxis: {
-              categories: ['苹果', '香蕉', '橙子']   // x 轴分类
-          },
-          yAxis: {
-              title: {
-                  text: '吃水果个数'                // y 轴标题
-              }
-          },
-          series: [{                              // 数据列
-              name: '小明',                        // 数据列名
-              data: [1, 0, 4]                     // 数据
-          }, {
-              name: '小红',
-              data: [5, 7, 3]
-          }]
-      };
-      return options;
+      this.$Highcharts.chart('container', options);
     },
     getOptions() {
       let options = {
@@ -297,7 +61,7 @@ export default {
           height: '100%'
         },
         title: {
-          text: '2014 年世界各地碳排放量'
+          text: '我的技术统计'
         },
         tooltip: {
           useHTML: true,
@@ -339,7 +103,7 @@ export default {
           }
         },
         series: [{
-          name: '欧洲',
+          name: 'Vue',
           data: [{
             name: 'Germany',
             value: 767.1
@@ -352,7 +116,7 @@ export default {
             value: 97.2
           }]
         },{
-          name: '非洲',
+          name: '小程序',
           data: [{
             name: "Senegal",
             value: 8.2
@@ -366,35 +130,7 @@ export default {
             value: 13.1
           }]
         },{
-          name: '大洋洲',
-          data: [{
-            name: "Australia",
-            value: 409.4
-          },
-          {
-            name: "New Zealand",
-            value: 34.1
-          },
-          {
-            name: "Papua New Guinea",
-            value: 7.1
-          }]
-        },{
-          name: '北美洲',
-          data: [{
-            name: "Costa Rica",
-            value: 7.6
-          },
-          {
-            name: "Honduras",
-            value: 8.4
-          },
-          {
-            name: "Jamaica",
-            value: 8.3
-          }]
-        },{
-          name: '南美洲',
+          name: 'Hae',
           data: [{
             name: "El Salvador",
             value: 7.2
@@ -406,24 +142,6 @@ export default {
           {
             name: "Bolivia",
             value: 17.8
-          }]
-        },{
-          name: '亚洲',
-          data: [{
-            name: "Nepal",
-            value: 306.5
-          },
-          {
-            name: "Georgia",
-            value: 6.5
-          },
-          {
-            name: "Brunei Darussalam",
-            value: 7.4
-          },
-          {
-            name: "Kyrgyzstan",
-            value: 7.4
           }]
         }]
       }
@@ -437,12 +155,65 @@ export default {
 
 .home-wrap{
   background: #F5F5F5;
-  .charts-box{
-    float: left;
-    // width: 170px;
+  .top-part{
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    align-items: flex-end;
+    background: #3bc7c6;
+    background: linear-gradient(145deg, #3dcaff, #3bc7c6);
+    position: relative;
+    overflow: hidden;
+    .title-box{
+      width: 100%;
+      position: absolute;
+      top: 0.6rem;
+      left: 0;
+      text-align: center;
+      .title{
+        font-size: 0.56rem;
+        color: #fff;
+        font-weight: 700;
+      }
+      .title-info{
+        color: #fff;
+        font-size: 0.26rem;
+        margin: 0.1rem 0 0.3rem;
+      }
+      .info-bold{
+        font-weight: bold;
+      }
+      .tolink{
+        display: block;
+        width: 1.8rem;
+        height: 0.6rem;
+        font-size: 0.24rem;
+        color: #ff8300;
+        background: #fff;
+        line-height: 0.6rem;
+        &::after{
+          display: none;
+        }
+      }
+    }
+    .icon-back{
+      position: absolute;
+      top: -0.8rem;
+      right: -0.8rem;
+      font-size: 3.1rem;
+      color: #fff;
+      opacity: 0.1;
+      transform: rotate(90deg);
+    }
+    .ani{
+      opacity: 0.6;
+    }
   }
-  .charts{
-    // width: 100%;
+  .main{
+    width: 7.1rem;
+    height: 5rem;
+    background: #fff;
+    margin: 0.2rem auto 0;
   }
 }
 
