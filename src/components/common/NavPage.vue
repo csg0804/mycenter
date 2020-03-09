@@ -1,8 +1,8 @@
 <template>
   <div class="nav-wrap scale-1px-top">
     <ul class="nav-list">
-      <li class="nav-item" :class="{'active':curnav==item.id}" v-for="(item, index) in navlist" :key="index">
-        <router-link class="links" :to="item.path" @click.native="navFun(item)">
+      <li class="nav-item" :class="{'active':curnav==item.name}" v-for="(item, index) in navlist" :key="index">
+        <router-link class="links" :to="item.path">
           <span class="iconfont" :class="item.icon"></span>
           <span class="title">{{item.title}}</span>
         </router-link>
@@ -16,18 +16,24 @@ export default {
   components: {},
   data() {
     return {
-      curnav: 1,
+      curnav: 'home',
       navlist: [
-        { id: 1, title: "首页", icon: "iconhome1", path: "/" },
-        { id: 2, title: "项目", icon: "iconappworksheet", path: "/works" },
-        { id: 3, title: "我的", icon: "icongerenzhongxin", path: "/my" }
+        { id: 1, title: "首页", name: "home", icon: "iconhome1", path: "/" },
+        { id: 2, title: "项目", name: "works", icon: "iconappworksheet", path: "/works" },
+        { id: 3, title: "我的", name: "my", icon: "icongerenzhongxin", path: "/my" }
       ]
     }
   },
-  methods: {
-    navFun(item) {
-      this.curnav = item.id;
+  watch: {
+    '$route'(newVal, oldVal) {
+      this.curnav = newVal.name;
     }
+  },
+  created() {
+    this.curnav = this.$route.name;
+  },
+  methods: {
+    
   }
 }
 </script>
