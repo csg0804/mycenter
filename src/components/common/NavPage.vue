@@ -19,7 +19,7 @@ export default {
       curnav: 1,
       navlist: [
         { id: 1, title: "首页", icon: "iconhome1", path: "/" },
-        { id: 2, title: "作品", icon: "iconappworksheet", path: "/works" },
+        { id: 2, title: "项目", icon: "iconappworksheet", path: "/works" },
         { id: 3, title: "我的", icon: "icongerenzhongxin", path: "/my" }
       ]
     }

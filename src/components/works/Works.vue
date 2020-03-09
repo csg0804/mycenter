@@ -20,6 +20,7 @@ export default {
 
 .works-wrap{
   background: #F5F5F5;
+  background: #eee;
 }
 
 </style>

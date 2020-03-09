@@ -19,7 +19,8 @@ export default {
 <style lang='less' scoped>
 
 .my-wrap{
-  background: #F5F5F5;
+  // background: #F5F5F5;
+  background: green;
 }
 
 </style>
