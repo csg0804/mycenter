@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragram" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon">
+    <title>M6使用说明书</title>
+    <style>
+        /*通用样式*/
+        *:focus {
+          outline: none;
+        }
+        html,
+        body {
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td,
+        input,
+        select,
+        textarea,
+        button {
+          margin: 0;
+          padding: 0;
+        }
+        fieldset,
+        img {
+          border: 0 none;
+        }
+        dl,
+        ul,
+        ol,
+        menu,
+        li {
+          list-style: none
+        }
+        blockquote,
+        q {
+          quotes: none
+        }
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+          content: '';
+          content: none
+        }
+        input,
+        select,
+        textarea,
+        button {
+          vertical-align: middle
+        }
+        button {
+          border: 0 none;
+          background-color: transparent;
+          cursor: pointer
+        }
+        Html {
+          font-size: 62.5%;
+        }
+        body {
+          background: #fff;
+          color: #333;
+          font-size: 10px;
+          font-size: 1rem;
+        }
+        a {
+          color: #666;
+          text-decoration: none
+        }
+        a:active,
+        a:hover {
+          text-decoration: none
+        }
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        var {
+          font-style: normal;
+          font-weight: normal
+        }
+        caption {
+            display: none;
+        }
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          table-layout: fixed;
+        }
+        a {
+          outline: none;
+        }
+        a:hover,
+        a:focus {
+          color: #d43b33;
+        }
+        *:focus {
+          outline: none;
+        }
+
+        .img-box{
+          width: 100%;
+          height: 100%;
+        }
+        .img-box > img{
+          display: block;
+          width: 100%;
+          border: none;
+          background: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="imgbox" class="img-box"></div>
+    <script type="text/javascript">
+      var parnode = document.getElementById('imgbox');
+      for (var i=1; i<27; i++){
+        var _r = i < 10 ? `0${i}` : i;
+        var base = `http://mambike-app-community.oss-cn-hangzhou.aliyuncs.com/manual-M6-${_r}.jpg`;
+
+        var imgnode = document.createElement('img');
+        imgnode.class = "imgs";
+        imgnode.src = base;
+        parnode.appendChild(imgnode);
+      }
+    </script>
+  </body>
+</html>

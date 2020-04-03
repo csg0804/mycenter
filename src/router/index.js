@@ -1,37 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Layout = r => require.ensure([], () => r(require('@/components/common/Layout')), 'Layout')
-const Home = r => require.ensure([], () => r(require('@/components/home/Home')), 'Home')
-const Works = r => require.ensure([], () => r(require('@/components/works/Works')), 'Works')
-const My = r => require.ensure([], () => r(require('@/components/my/My')), 'My')
+const Home = r => require.ensure([], () => r(require('@/components/Home')), 'Home')
 
 Vue.use(Router)
 
 const routerlist = [
   { 
     path: '/', 
-    component: Layout,
-    redirect: { name: 'home' },
-    children: [
-      { path: '/', name: 'home', component: Home, meta: { title: "首页" } }
-    ]
-  },
-  { 
-    path: '/works', 
-    component: Layout,
-    redirect: { name: 'works' },
-    children: [
-      { path: '/works', name: 'works', component: Works, meta: { title: "我的项目" } }
-    ]
-  },
-  { 
-    path: '/my', 
-    component: Layout,
-    redirect: { name: 'my' },
-    children: [
-      { path: '/my', name: 'my', component: My, meta: { title: "个人中心" } }
-    ]
+    name: 'home',
+    component: Home,
+    meta: { title: "首页" }
   }
 ]
 

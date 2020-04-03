@@ -1,5 +1,5 @@
 {
-  "name": "try-vue",
+  "name": "common_h5",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "陈松国 <csg0804>",
@@ -11,11 +11,8 @@
     "build": "cross-env BUILD_ENV=2 node build/build.js"
   },
   "dependencies": {
-    "highcharts": "^8.0.3",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "vux": "^2.9.4",
-    "vux-loader": "^1.2.9"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
