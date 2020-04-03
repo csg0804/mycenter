@@ -76,24 +76,24 @@ const webpackConfig = merge(baseWebpackConfig, {
       chunksSortMode: 'dependency'
     }),
     
-    // //猛犸电动A6使用说明书
-    // new HtmlWebpackPlugin({
-    //   filename: 'A6InstructionImg.html',
-    //   template: 'A6InstructionImg.html',
-    //   inject: false
-    // }),
-    // //猛犸电动M6使用说明书
-    // new HtmlWebpackPlugin({
-    //   filename: 'M6InstructionImg.html',
-    //   template: 'M6InstructionImg.html',
-    //   inject: false
-    // }),
-    // //猛犸电动A+使用说明书
-    // new HtmlWebpackPlugin({
-    //   filename: 'AplusInstructionImg.html',
-    //   template: 'AplusInstructionImg.html',
-    //   inject: false
-    // }),
+    //猛犸电动A6使用说明书
+    new HtmlWebpackPlugin({
+      filename: 'A6InstructionImg.html',
+      template: 'A6InstructionImg.html',
+      inject: false
+    }),
+    //猛犸电动M6使用说明书
+    new HtmlWebpackPlugin({
+      filename: 'M6InstructionImg.html',
+      template: 'M6InstructionImg.html',
+      inject: false
+    }),
+    //猛犸电动A+使用说明书
+    new HtmlWebpackPlugin({
+      filename: 'AplusInstructionImg.html',
+      template: 'AplusInstructionImg.html',
+      inject: false
+    }),
 
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
